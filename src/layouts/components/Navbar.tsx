@@ -1,10 +1,23 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import { FiMenu, FiX } from "react-icons/fi"; // Menu and Close icons
+import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { FiMenu, FiX } from "react-icons/fi";
 import Logo from "../../assets/logo/logo.png";
 
 const Navbar = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const user = localStorage.getItem("user");
+    setIsLoggedIn(!!user && user !== "null" && user !== "false");
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    setIsLoggedIn(false);
+    navigate("/landing-page"); // or "/" if you prefer
+  };
 
   return (
     <nav className="bg-gray-100 border-b-4 border-blue-800 rounded-lg text-lg font-semibold px-6 py-4">
@@ -38,18 +51,32 @@ const Navbar = () => {
           <Link className="hover:text-blue-600 duration-300" to="/contact-us">
             संपर्क
           </Link>
-          <Link
-            className="bg-red-600 text-white px-4 py-1 rounded-lg hover:scale-110 hover:bg-red-700 duration-300"
-            to="/nagarikta"
-          >
-            नागरिकता
-          </Link>
-          <Link
-            className="bg-blue-600 text-white px-4 py-1 rounded-lg hover:scale-110 hover:bg-blue-800 duration-300"
-            to="/login"
-          >
-            Login
-          </Link>
+
+          {isLoggedIn && (
+            <Link
+              className="bg-red-600 text-white px-4 py-1 rounded-lg hover:scale-110 hover:bg-red-700 duration-300"
+              to="/nagarikta"
+            >
+              नागरिकता
+            </Link>
+          )}
+
+          {isLoggedIn ? (
+            <button
+              className="bg-gray-800 text-white px-4 py-1 rounded-lg hover:scale-110 hover:bg-gray-900 duration-300"
+              onClick={handleLogout}
+              
+            >
+              Logout
+            </button>
+          ) : (
+            <Link
+              className="bg-blue-600 text-white px-4 py-1 rounded-lg hover:scale-110 hover:bg-blue-800 duration-300"
+              to="/login"
+            >
+              Login
+            </Link>
+          )}
         </div>
       </div>
 
@@ -77,20 +104,36 @@ const Navbar = () => {
           >
             संपर्क
           </Link>
-          <Link
-            className="bg-red-600 text-white px-4 py-1 rounded-lg hover:scale-105 hover:bg-red-700 duration-300"
-            to="/nagarikta"
-            onClick={() => setIsOpen(false)}
-          >
-            नागरिकता
-          </Link>
-          <Link
-            className="bg-blue-600 text-white px-4 py-1 rounded-lg hover:scale-105 hover:bg-blue-800 duration-300"
-            to="/login"
-            onClick={() => setIsOpen(false)}
-          >
-            Login
-          </Link>
+
+          {isLoggedIn && (
+            <Link
+              className="bg-red-600 text-white px-4 py-1 rounded-lg hover:scale-110 hover:bg-red-700 duration-300"
+              to="/nagarikta"
+              onClick={() => setIsOpen(false)}
+            >
+              नागरिकता
+            </Link>
+          )}
+
+          {isLoggedIn ? (
+            <button
+              className="bg-gray-800 text-white px-4 py-1 rounded-lg hover:scale-110 hover:bg-gray-900 duration-300"
+              onClick={() => {
+                handleLogout();
+                setIsOpen(false);
+              }}
+            >
+              Logout
+            </button>
+          ) : (
+            <Link
+              className="bg-blue-600 text-white px-4 py-1 rounded-lg hover:scale-105 hover:bg-blue-800 duration-300"
+              to="/login"
+              onClick={() => setIsOpen(false)}
+            >
+              Login
+            </Link>
+          )}
         </div>
       )}
     </nav>
