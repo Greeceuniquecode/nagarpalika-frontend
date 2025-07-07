@@ -212,7 +212,9 @@ const LoginPage: React.FC = () => {
 };
 
 export default LoginPage;
-function setIsOpen(arg0: boolean) {
+
+
+function setIsOpen(_arg0: boolean): void {
     throw new Error('Function not implemented.');
 }
 
