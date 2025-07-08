@@ -153,8 +153,11 @@ const LandingPage: React.FC = () => {
                 <span className="text-4xl">🏛️</span>
               </div>
             </div>
-            <h1 className="text-5xl md:text-7xl font-bold mb-4 font-mono tracking-wide drop-shadow-lg">
+            <h1 className="text-5xl md:text-7xl font-bold text-black-600 mb-4 font-mono tracking-wide drop-shadow-lg">
               इटहरी उपमहानगरपालिका
+            </h1>
+            <h1 className="text-4xl md:text-7xl font-bold mb-4 font-mono tracking-wide drop-shadow-lg">
+              १ नम्वर वडा कार्यालय
             </h1>
             <p className="text-xl md:text-2xl mb-2 text-gray-200 drop-shadow-md">
               Itahari Sub-Metropolitan City
