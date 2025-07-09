@@ -36,13 +36,13 @@ const LandingPage: React.FC = () => {
       fallback: 'https://images.unsplash.com/photo-1480714378408-67cf0d13bc1f?w=1920&h=1080&fit=crop'
     },
     {
-      url: 'https://nepalnews.com/wp-content/uploads/2024/10/Itahari_Sub_Metropolitan_City_Office1628701220.jpg',
+      url: 'https://lh3.googleusercontent.com/gps-cs-s/AC9h4nrJt9izfpBV49q6mD81VYr3FcjDKJk4QJGfw3BzFQhjJXEvsWcjUN6Q_c3EhnunaGDbq9hqgnL2R0ZAMCYvJqj_g6CfEOHCTC7e58Me0-CS8mdvZCL7lfSGRlrV5mND-SdxvqCbIw=s680-w680-h510-rw',
       title: 'आधुनिक प्रशासनिक भवन',
       subtitle: 'नागरिक सेवाको केन्द्रबिन्दु',
       fallback: 'https://images.unsplash.com/photo-1555636222-cae831e670b3?w=1920&h=1080&fit=crop'
     },
     {
-      url: 'https://en.himalpress.com/wp-content/uploads/2023/08/itahari_1650462022.jpg',
+      url: 'https://imgur.com/a/BxgQLuo',
       title: 'व्यापारिक केन्द्र',
       subtitle: 'आर्थिक विकासको मुख्य आधार',
       fallback: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&h=1080&fit=crop'

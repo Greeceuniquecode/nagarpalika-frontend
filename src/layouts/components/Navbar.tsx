@@ -2,24 +2,32 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FiMenu, FiX } from "react-icons/fi";
 import Logo from "../../assets/logo/logo.png";
+import { toast, ToastContainer } from "react-toastify";
 
 const Navbar = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
 
+  const fetchUser = async () => {
+    const userEmail = await localStorage.getItem("email");
+    setIsLoggedIn(!!userEmail && userEmail !== "null" && userEmail !== "false");
+  }
+
   useEffect(() => {
-    const user = localStorage.getItem("user");
-    setIsLoggedIn(!!user && user !== "null" && user !== "false");
+    fetchUser()
   }, []);
 
   const handleLogout = () => {
-    localStorage.removeItem("user");
+    localStorage.removeItem("email");
+    toast.success("logged Out Succesfully");
     setIsLoggedIn(false);
     navigate("/landing-page"); // or "/" if you prefer
   };
 
   return (
+    <>
+    <ToastContainer />
     <nav className="bg-gray-100 border-b-4 border-blue-800 rounded-lg text-lg font-semibold px-6 py-4">
       <div className="flex justify-between items-center">
         {/* Logo and Title */}
@@ -28,7 +36,7 @@ const Navbar = () => {
           to="/"
         >
           <img src={Logo} className="h-12 w-12 rounded-full" alt="Logo" />
-          <p className="hidden sm:block">इटहरी उपमहानगरपालिका कार्यालय</p>
+          <p className="hidden sm:block">इटहरी उपमहानगरपालिका</p>
         </Link>
 
         {/* Mobile Menu Button */}
@@ -54,7 +62,7 @@ const Navbar = () => {
 
           {isLoggedIn && (
             <Link
-              className="bg-red-600 text-white px-4 py-1 rounded-lg hover:scale-110 hover:bg-red-700 duration-300"
+              className="bg-blue-600 text-white px-4 py-1 rounded-lg hover:scale-110 hover:bg-blue-700 duration-300"
               to="/nagarikta"
             >
               नागरिकता
@@ -63,9 +71,9 @@ const Navbar = () => {
 
           {isLoggedIn ? (
             <button
-              className="bg-gray-800 text-white px-4 py-1 rounded-lg hover:scale-110 hover:bg-gray-900 duration-300"
+              className="bg-red-600 text-white px-4 py-1 rounded-lg hover:scale-110 hover:bg-red-800 duration-300"
               onClick={handleLogout}
-              
+
             >
               Logout
             </button>
@@ -137,7 +145,7 @@ const Navbar = () => {
         </div>
       )}
     </nav>
+    </>
   );
 };
-
 export default Navbar;

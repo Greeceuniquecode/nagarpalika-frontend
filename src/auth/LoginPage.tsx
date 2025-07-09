@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Eye, EyeOff, Lock, User, Shield } from 'lucide-react';
 import Logo from "../assets/logo/logo.png";
-import { Link, useNavigate } from "react-router-dom";
-import type { LoginCredentials, UserData } from '../../interface/User';
+import { Link } from "react-router-dom";
+import type { LoginCredentials, LoginUserData } from '../../interface/User';
+import { toast } from 'react-toastify';
 
 const LoginPage: React.FC = () => {
   const [credentials, setCredentials] = useState<LoginCredentials>({ email: '', password: '' });
@@ -10,10 +11,9 @@ const LoginPage: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [currentUser, setCurrentUser] = useState<UserData | null>(null);
-  const navigate = useNavigate();
+  const [currentUser, setCurrentUser] = useState<LoginUserData | null>(null);  
 
-  const dummyUsers: UserData[] = [
+  const dummyUsers: LoginUserData[] = [
     { email: 'admin@gmail.com', password: 'Admin@123', name: 'John Administrator', role: 'System Administrator' },
     { email: 'officer@gmail.com', password: 'Officer@123', name: 'Sarah Johnson', role: 'Government Officer' },
     { email: 'clerk@gmail.com', password: 'Clerk@123', name: 'Mike Wilson', role: 'Administrative Clerk' },
@@ -46,6 +46,7 @@ const LoginPage: React.FC = () => {
     if (user) {
       setCurrentUser(user);
       setIsLoggedIn(true);
+      toast.success("Logged In Sucessfully")
 
     } else {
       setError('Invalid Employee Email or Password');
@@ -55,7 +56,8 @@ const LoginPage: React.FC = () => {
   };
 
   const handleAccessDashboard = () => {
-    navigate("/landing-page"); // 🔁 Route to your Landing Page
+    localStorage.setItem('email', currentUser?.email || "");
+    window.location.href = "/landing-page";
   };
 
   const handleLogout = () => {
@@ -66,15 +68,17 @@ const LoginPage: React.FC = () => {
 
   // ✅ Show Dashboard Access UI after login
   if (isLoggedIn && currentUser) {
-    {isLoggedIn && (
-            <Link
-              className="bg-red-600 text-white px-4 py-1 rounded-lg hover:scale-110 hover:bg-red-700 duration-300"
-              to="/nagarikta"
-              onClick={() => setIsOpen(false)}
-            >
-              नागरिकता
-            </Link>
-          )}
+    {
+      isLoggedIn && (
+        <Link
+          className="bg-red-600 text-white px-4 py-1 rounded-lg hover:scale-110 hover:bg-red-700 duration-300"
+          to="/nagarikta"
+          onClick={() => setIsOpen(false)}
+        >
+          नागरिकता
+        </Link>
+      )
+    }
     return (
       <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 flex items-center justify-center p-4">
         <div className="bg-white rounded-lg shadow-xl p-8 w-full max-w-md text-center">
@@ -215,6 +219,6 @@ export default LoginPage;
 
 
 function setIsOpen(_arg0: boolean): void {
-    throw new Error('Function not implemented.');
+  throw new Error('Function not implemented.');
 }
 
