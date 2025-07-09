@@ -42,12 +42,6 @@ const LandingPage: React.FC = () => {
       fallback: 'https://images.unsplash.com/photo-1555636222-cae831e670b3?w=1920&h=1080&fit=crop'
     },
     {
-      url: 'https://imgur.com/a/BxgQLuo',
-      title: 'व्यापारिक केन्द्र',
-      subtitle: 'आर्थिक विकासको मुख्य आधार',
-      fallback: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&h=1080&fit=crop'
-    },
-    {
       url: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&h=1080&fit=crop',
       title: 'सामुदायिक विकास',
       subtitle: 'सबै नागरिकको उन्नतिमा प्रतिबद्ध',

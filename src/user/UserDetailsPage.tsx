@@ -1,6 +1,5 @@
 import { useSelector } from "react-redux";
 import type { RootState } from "../redux/store";
-import bs from 'bikram-sambat-js';
 import BikramSambat from "bikram-sambat-js";
 
 const InputLine = ({ value = "", className = "" }: { value?: string | number; className?: string }) => (
@@ -90,10 +89,10 @@ const [bYear, bMonth, bDay] = bsDate.split('-');
             Year <InputLine value={month} className="w-16" /> Month
             <InputLine value={day} className="w-16" /> Day</p>
           <p>७. बाबुको नाम, थर र जन्म: <InputLine value={fatherName} className="w-40" />
-            नागरिकताको किसिम: <InputLine className="w-32 text-center" /></p>
+            नागरिकताको किसिम: <InputLine value={fatherCitizenshipType} className="w-32 text-center" /></p>
           <p>८. आमाको नाम, थर र जन्म: <InputLine value={motherName} className="w-40" />
-            नागरिकताको किसिम: <InputLine className="w-32 text-center" /></p>
-          <p>९. पतिको नाम, थर र जन्म: <InputLine value={fatherName} className="w-40" /> नागरिकताको किसिम: <InputLine value={fatherCitizenshipType} className="w-32 text-center" /></p>
+            नागरिकताको किसिम: <InputLine value={motherCitizenshipType} className="w-32 text-center" /></p>
+          <p>९. पतिको नाम, थर र जन्म: <InputLine value={spouseName} className="w-40" /> नागरिकताको किसिम: <InputLine value={spouseCitizenshipType} className="w-32 text-center" /></p>
         </div>
 
         <p className="mt-6">
