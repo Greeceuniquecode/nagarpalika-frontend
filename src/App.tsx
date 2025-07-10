@@ -19,7 +19,7 @@ const App = () => {
           <Route index element={<LandingPage />} />
           <Route path="/nagarikta" element={isLoggedIn?(<UserIdForm />):(<LoginPage />)} />
           <Route path="/user-details" element={isLoggedIn?(<UserDetailsPage />):(<LoginPage />)} />
-          <Route path="/home" element={<div className="p-10">परिचय पृष्ठ</div>} />
+          <Route path="/home" element={<LandingPage />} />
           <Route path="/about-us" element={<AboutUsPage />} />
           <Route path="/contact-us" element={<div className="p-10">सम्पर्क पृष्ठ</div>} />
           <Route path="/login" element={<LoginPage />} />
