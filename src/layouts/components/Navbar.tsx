@@ -50,7 +50,7 @@ const Navbar = () => {
 
         {/* Desktop Links */}
         <div className="hidden md:flex gap-4 items-center">
-          <Link className="hover:text-blue-600 duration-300" to="/home">
+          <Link className="hover:text-blue-600 duration-300" to="/">
             <button>परिचय</button>
           </Link>
           <Link className="hover:text-blue-600 duration-300" to="/about-us">

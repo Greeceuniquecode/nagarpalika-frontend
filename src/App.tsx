@@ -5,6 +5,7 @@ import UserIdForm from "./user/UserIdForm";
 import UserDetailsPage from "./user/UserDetailsPage";
 import LoginPage from "./auth/LoginPage";
 import { useState, useEffect } from "react";
+import AboutUsPage from "./dashboard/aboutUsPage";
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   useEffect(() => {
@@ -19,7 +20,7 @@ const App = () => {
           <Route path="/nagarikta" element={isLoggedIn?(<UserIdForm />):(<LoginPage />)} />
           <Route path="/user-details" element={isLoggedIn?(<UserDetailsPage />):(<LoginPage />)} />
           <Route path="/home" element={<div className="p-10">परिचय पृष्ठ</div>} />
-          <Route path="/about-us" element={<div className="p-10">हाम्रो बारेमा</div>} />
+          <Route path="/about-us" element={<AboutUsPage />} />
           <Route path="/contact-us" element={<div className="p-10">सम्पर्क पृष्ठ</div>} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/landing-page" element={<LandingPage />} >
