@@ -16,9 +16,8 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Layouts />} >
           <Route index element={<LandingPage />} />
-          <Route path="/nagarikta" element={<UserIdForm />} />
-          <Route path="/user-details" element={<UserDetailsPage />} />
-          {/* Dummy routes for other navbar links */}
+          <Route path="/nagarikta" element={isLoggedIn?(<UserIdForm />):(<LoginPage />)} />
+          <Route path="/user-details" element={isLoggedIn?(<UserDetailsPage />):(<LoginPage />)} />
           <Route path="/home" element={<div className="p-10">परिचय पृष्ठ</div>} />
           <Route path="/about-us" element={<div className="p-10">हाम्रो बारेमा</div>} />
           <Route path="/contact-us" element={<div className="p-10">सम्पर्क पृष्ठ</div>} />

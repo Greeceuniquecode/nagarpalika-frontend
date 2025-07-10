@@ -28,7 +28,7 @@ const Navbar = () => {
   return (
     <>
     <ToastContainer />
-    <nav className="bg-gray-100 border-b-4 border-blue-800 rounded-lg text-lg font-semibold px-6 py-4">
+    <nav className="bg-gray-100 border-b-4 border-blue-800 rounded-lg text-lg font-semibold px-6 py-4 print:hidden">
       <div className="flex justify-between items-center">
         {/* Logo and Title */}
         <Link
