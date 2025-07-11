@@ -4,6 +4,8 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { setUserData } from "../redux/slices/userSlice";
 import type { UserData } from "../../interface/User";
+import { v4 as uuidv4 } from "uuid";
+
 
 const validationSchema = Yup.object({
   studentName: Yup.string().required("Required"),
@@ -25,6 +27,7 @@ const validationSchema = Yup.object({
 });
 
 const initialValues: UserData = {
+  id:"",
   studentName: "",
   dob: "",
   fatherName: "",
@@ -50,7 +53,8 @@ const UserIdForm = () => {
   const navigate = useNavigate();
 
   const onSubmit = (values: UserData) => {
-    dispatch(setUserData(values));
+    const userWithId = { ...values, id: uuidv4() };
+    dispatch(setUserData(userWithId));
     navigate("/user-details");
   };
 

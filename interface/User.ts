@@ -11,7 +11,8 @@ export interface LoginUserData {
 }
 
 export interface UserData {
-    studentName: string;
+  id: string;
+  studentName: string;
   dob: string;
   fatherName: string;
   motherName: string;
@@ -30,4 +31,5 @@ export interface UserData {
   spouseName: string;
   spouseCitizenshipType: string;
 }
+
 

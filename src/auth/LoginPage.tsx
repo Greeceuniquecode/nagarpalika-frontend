@@ -57,7 +57,7 @@ const LoginPage: React.FC = () => {
 
   const handleAccessDashboard = () => {
     localStorage.setItem('email', currentUser?.email || "");
-    window.location.href = "/landing-page";
+    window.location.href = "/";
   };
 
   const handleLogout = () => {

@@ -3,24 +3,26 @@ import type { RootState } from "../redux/store";
 import BikramSambat from "bikram-sambat-js";
 
 const UserDetailsPage = () => {
+  const user = useSelector((state: RootState) => state.user.users[-1]);
+
   const {
-    studentName,
-    dob,
-    fatherName,
-    motherName,
-    birthPlace,
-    gender,
-    citizenshipNumber,
-    citizenshipIssueDate,
-    citizenshipType,
-    district,
-    municipality,
-    wardNo,
-    fatherCitizenshipType,
-    motherCitizenshipType,
-    spouseName,
-    spouseCitizenshipType,
-  } = useSelector((state: RootState) => state.user);
+    studentName = "",
+    dob = "1992-12-26",
+    fatherName = "तेज बहादुर खड्का",
+    motherName = "सरस्वती खड्का",
+    birthPlace = "धनगढी",
+    gender = "Male",
+    citizenshipNumber = "67-01-69-01341",
+    citizenshipIssueDate = "२०३९/०२/३२",
+    citizenshipType = "जन्मसिद्ध",
+    district = "कैलाली",
+    municipality = "धनगढी",
+    wardNo = "१",
+    fatherCitizenshipType = "जन्मसिद्ध",
+    motherCitizenshipType = "जन्मसिद्ध",
+    spouseName = "सीता खड्का",
+    spouseCitizenshipType = "जन्मसिद्ध",
+  } = user || {};
 
   const bsDate = new BikramSambat(dob, "AD").toBS();
   const [bYear, bMonth, bDay] = bsDate.split("-");
