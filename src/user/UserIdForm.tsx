@@ -2,13 +2,13 @@ import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { addUser } from "../redux/slices/userSlice";
 import type { UserData } from "../../interface/User";
 import { v4 as uuidv4 } from "uuid";
+import { addUser } from "../redux/slices/userSlice";
 
 
 const validationSchema = Yup.object({
-  studentName: Yup.string().required("Required"),
+  fullName: Yup.string().required("Required"),
   dob: Yup.string().required("Required"),
   fatherName: Yup.string().required("Required"),
   motherName: Yup.string().required("Required"),
@@ -27,8 +27,8 @@ const validationSchema = Yup.object({
 });
 
 const initialValues: UserData = {
-  id: "",
-  studentName: "",
+  id: uuidv4(),
+  fullName: "",
   dob: "",
   fatherName: "",
   motherName: "",
@@ -47,14 +47,12 @@ const initialValues: UserData = {
   spouseName: "",
   spouseCitizenshipType: "",
 }
-
 const UserIdForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const onSubmit = (values: UserData) => {
-    const userWithId = { ...values, id: uuidv4() };
-    dispatch(addUser(userWithId));
+    dispatch(addUser(values));
      navigate("/user-details");
   };
 
@@ -87,11 +85,11 @@ const UserIdForm = () => {
                   <div className="space-y-2">
                     <label className="block text-sm font-medium text-gray-700">नाम:</label>
                     <Field
-                      name="studentName"
+                      name="fullName"
                       type="text"
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-gray-50 focus:bg-white"
                     />
-                    <ErrorMessage name="studentName" component="div" className="text-red-500 text-sm mt-1" />
+                    <ErrorMessage name="fullName" component="div" className="text-red-500 text-sm mt-1" />
                   </div>
                   <div className="space-y-2">
                     <label className="block text-sm font-medium text-gray-700">जन्म मिति:</label>

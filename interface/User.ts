@@ -12,7 +12,7 @@ export interface LoginUserData {
 
 export interface UserData {
   id: string;
-  studentName: string;
+  fullName: string;
   dob: string;
   fatherName: string;
   motherName: string;

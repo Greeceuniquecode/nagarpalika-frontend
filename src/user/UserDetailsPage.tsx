@@ -3,10 +3,13 @@ import type { RootState } from "../redux/store";
 import BikramSambat from "bikram-sambat-js";
 
 const UserDetailsPage = () => {
-  const user = useSelector((state: RootState) => state.user.users[-1]);
-
+const user = useSelector((state: RootState) => {
+  const users = state.users.users;
+  return users[users.length - 1];
+});
+console.log("redux user", user)
   const {
-    studentName = "",
+    fullName = "पदम बहादुर खड्का",
     dob = "1992-12-26",
     fatherName = "तेज बहादुर खड्का",
     motherName = "सरस्वती खड्का",
@@ -63,8 +66,8 @@ const UserDetailsPage = () => {
           {/* Details Section */}
           <div className="space-y-2 border-2 p-1">
             <p>१. ना.प्र.प.नं:- <strong>{citizenshipNumber || "67-01-69-01341"}</strong> मिति:- <strong>{citizenshipIssueDate || "२०३९/०२/३२"}</strong> किसिम:- <strong>{citizenshipType || "जन्मसिद्ध"}</strong></p>
-            <p>२. नाम थर:- <strong>{studentName || "राम बहादुर खड्का"}</strong></p>
-            <p className="ml-4">Full Name (In Block Letter) <strong>{studentName || "RAM BAHADUR KHADKA"}</strong></p>
+            <p>२. नाम थर:- <strong>{fullName || "राम बहादुर खड्का"}</strong></p>
+            <p className="ml-4">Full Name (In Block Letter) <strong>{fullName || "RAM BAHADUR KHADKA"}</strong></p>
             <p>३. लिंग :- <strong>{gender === 'Male' ? 'पुरुष' : 'महिला'}</strong> Sex <strong>{gender === 'Male' ? 'M' : 'F'}</strong></p>
             <p>४. जन्म स्थान :- <strong>{birthPlace || "धनगढी"}</strong></p>
             <p className="ml-4">Place Of Birth (In Block Letter) <strong>{birthPlace || "DHANGADHI"}</strong></p>
@@ -106,7 +109,7 @@ const UserDetailsPage = () => {
           <div className="text-right space-y-1">
             <p>निवेदकको</p>
             <p>दस्तखत:</p>
-            <p>नाम थर:- <strong>{studentName || "राम बहादुर खड्का"}</strong></p>
+            <p>नाम थर:- <strong>{fullName || "राम बहादुर खड्का"}</strong></p>
             <p>मिति:- <strong>२०८०÷१२÷१४</strong></p>
           </div>
         </div>
@@ -117,7 +120,7 @@ const UserDetailsPage = () => {
 
           <p className="mb-4 text-justify">
             <strong>{municipality || "धनगढी"}</strong> गाउँपालिका/नगरपालिका वडा नं <strong>{wardNo || "१"}</strong> मा मिति <strong>२०४९/०९/१०</strong> मा जन्म भई हालसम्म स्थायी रुपमा बसोबास गरी आएका
-            यसमा लेखिएका श्रीमान् <strong>{fatherName || "तेज बहादुर खड्का"}</strong> को छोरा/छोरी/पत्नी वर्ष <strong>33</strong> को श्री/सुश्री/श्रीमती <strong>{studentName || "राम बहादुर खड्का"}</strong> लाई म राम्ररी चिन्छु ।
+            यसमा लेखिएका श्रीमान् <strong>{fatherName || "तेज बहादुर खड्का"}</strong> को छोरा/छोरी/पत्नी वर्ष <strong>33</strong> को श्री/सुश्री/श्रीमती <strong>{fullName || "राम बहादुर खड्का"}</strong> लाई म राम्ररी चिन्छु ।
             निजको माग बमोजिम उपयुक्त विवरण भएको नं. <strong>67-01-69-01341</strong> मिति <strong>२०३९/०२/३२</strong> को नागरिकता प्रमाणपत्रको सक्कल प्रति झुत्रो भएको/हराएको/नयाँ
             ढाँचाको आवश्यक भएको व्यहोरा साँचो हुँदा प्रतिलिपि बनाई दिएमा फरक नपर्ने व्यहोरा सिफारिस गर्दछु।
           </p>

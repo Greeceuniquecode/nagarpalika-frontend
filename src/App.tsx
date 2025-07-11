@@ -25,11 +25,11 @@ const App = () => {
 
           <Route path="/nagarikta" element={<UserIdForm />} />
           <Route path="/user-details" element={<UserDetailsPage />} />
-          {isLoggedIn && (
-            <>
+          {/* {isLoggedIn && (
+            <> */}
               <Route path="/users" element={<Users />} />
-            </>
-          )}
+            {/* </>
+          )} */}
           <Route path="/home" element={<LandingPage />} />
           <Route path="/about-us" element={<AboutUsPage />} />
           <Route path="/contact-us" element={<div className="p-10">सम्पर्क पृष्ठ</div>} />

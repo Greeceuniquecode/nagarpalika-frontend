@@ -1,37 +1,67 @@
 import { useSelector } from "react-redux";
 import type { RootState } from "../redux/store";
-import type { UserData } from "../../interface/User";
 
 const Users = () => {
-const users = useSelector((state: RootState) => {
-  const u = state.user?.users;
-  return Array.isArray(u) ? u : [];
-});
+  const users = useSelector((state: RootState) => {
+    const u = state.users.users;
+    return Array.isArray(u) ? u : [];
+  });
 
-
-  console.log("redux user", users)
-
-  if (users.length === 0) {
-    return <p className="text-center mt-10 text-gray-500">No users registered yet.</p>;
-  }
 
   return (
-    <div className="max-w-4xl mx-auto mt-10 p-4 bg-white shadow-md rounded-md">
-      <h2 className="text-xl font-bold mb-4">Registered Users</h2>
-      <ul className="space-y-4">
-        {users.map((user: UserData, index: number) => (
-          <li
-            key={user.id ?? index}
-            className="border rounded-md p-4 shadow-sm bg-gray-50 hover:bg-gray-100 transition"
+    <div>
+      <div className="pb-36">
+        <div>
+          <div
+            className="relative overflow-x-auto shadow-md sm:rounded-lg mx-12 my-4 border-4 border-indigo-800"
           >
-            <p><strong>Name:</strong> {user.studentName}</p>
-            <p><strong>Gender:</strong> {user.gender}</p>
-            <p><strong>DOB:</strong> {user.dob}</p>
-            <p><strong>Citizenship No:</strong> {user.citizenshipNumber}</p>
-            <p><strong>Address:</strong> {user.municipality}, Ward {user.wardNo}, {user.district}</p>
-          </li>
-        ))}
-      </ul>
+            <table className="text-center w-full text-sm rtl:text-right text-blue-100 dark:text-blue-100 border-separate border-spacing-1">
+              <thead className="text-xs text-white uppercase bg-blue-600 border-b border-blue-400 dark:text-white">
+                <tr className="bg-blue-600 border-b border-blue-400 hover:bg-blue-500">
+                  <th scope="row" className="px-6 py-3 text-base font-bold">
+                    Name
+                  </th>
+                  <th scope="col" className="px-6 py-3 text-base font-bold">
+                    Address
+                  </th>
+                  <th scope="col" className="px-6 py-3 text-base font-bold">
+                    Phone
+                  </th>
+                  <th scope="col" className="px-6 py-3 text-base font-bold">
+                    Gender
+                  </th>
+                  <th scope="col" className="px-6 py-3 text-base font-bold">
+                    Citizenship
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {users
+                  .map((user) => (
+                    <tr
+                      key={user.id} className="bg-gray-300 border-b border-gray-200 text-gray-900 hover:bg-blue-300">
+                      <td scope="row" className="px-6 text-base font-medium whitespace-nowrap dark:text-blue-100">
+                        {user.fullName}
+                      </td>
+                      <td scope="row" className="px-6 text-base font-medium whitespace-nowrap dark:text-blue-100">
+                        {user.address}
+                      </td>
+                      <td scope="row" className="px-6 text-base font-medium whitespace-nowrap dark:text-blue-100">
+                        {user.mobile}
+                      </td>
+                      <td scope="row" className="px-6 text-base font-medium whitespace-nowrap dark:text-blue-100">
+                        {user.gender}
+                      </td>
+                      <td scope="row" className="px-6 text-base font-medium whitespace-nowrap dark:text-blue-100">
+                        {user.citizenshipNumber}
+                      </td>
+                    </tr>
+                  ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
