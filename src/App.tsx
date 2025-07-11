@@ -11,7 +11,7 @@ import Users from "./user/Users";
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   useEffect(() => {
-    const userEmail = localStorage.getItem("user");
+    const userEmail = localStorage.getItem("email");
     if (userEmail != null) {
       setIsLoggedIn(true);
     }
@@ -22,14 +22,13 @@ const App = () => {
         <Route path="/" element={<Layouts />} >
           <Route path='*' element={<PageNotFound />} />
           <Route index element={<LandingPage />} />
-
-          <Route path="/nagarikta" element={<UserIdForm />} />
-          <Route path="/user-details" element={<UserDetailsPage />} />
-          {/* {isLoggedIn && (
-            <> */}
+          {isLoggedIn && (
+            <>
+              <Route path="/nagarikta" element={<UserIdForm />} />
+              <Route path="/user-details" element={<UserDetailsPage />} />
               <Route path="/users" element={<Users />} />
-            {/* </>
-          )} */}
+            </>
+          )}
           <Route path="/home" element={<LandingPage />} />
           <Route path="/about-us" element={<AboutUsPage />} />
           <Route path="/contact-us" element={<div className="p-10">सम्पर्क पृष्ठ</div>} />
