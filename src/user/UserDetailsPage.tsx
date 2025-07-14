@@ -23,7 +23,6 @@ const UserDetailsPage = () => {
     nMunicipality="",
     nWardNo="",
     nFullName="",
-    citizenshipIssuePlace="",
     municipality = "धनगढी",
     wardNo = "१",
     fatherCitizenshipType = "जन्मसिद्ध",
