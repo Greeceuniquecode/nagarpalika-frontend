@@ -3,11 +3,11 @@ import type { RootState } from "../redux/store";
 import BikramSambat from "bikram-sambat-js";
 
 const UserDetailsPage = () => {
-const user = useSelector((state: RootState) => {
-  const users = state.users.users;
-  return users[users.length - 1];
-});
-console.log("redux user", user)
+  const user = useSelector((state: RootState) => {
+    const users = state.users.users;
+    return users[users.length - 1];
+  });
+  console.log("redux user", user)
   const {
     fullName = "पदम बहादुर खड्का",
     dob = "1992-12-26",
@@ -19,6 +19,11 @@ console.log("redux user", user)
     citizenshipIssueDate = "२०३९/०२/३२",
     citizenshipType = "जन्मसिद्ध",
     district = "कैलाली",
+    nDistrict= "",
+    nMunicipality="",
+    nWardNo="",
+    nFullName="",
+    citizenshipIssuePlace="",
     municipality = "धनगढी",
     wardNo = "१",
     fatherCitizenshipType = "जन्मसिद्ध",
@@ -34,7 +39,7 @@ console.log("redux user", user)
   const handlePrint = () => window.print();
 
   return (
-    <div className="">
+    <div className="tracking-wider font-medium">
       {/* Printable Content */}
       <div
         id="print-area"
@@ -43,36 +48,41 @@ console.log("redux user", user)
         {/* Header Section */}
         <div className="mb-3 space-y-1">
           <p>श्रीमान प्रमुख जिल्ला अधिकारी ज्यू,</p>
-          <p>जिल्ला प्रशासन कार्यालय, धनगढी, कैलाली,</p>
-          <p>सुदूरपश्चिम प्रदेश नेपाल ।</p>
+          <p>जिल्ला प्रशासन कार्यालय</p>
+          <p>इनरुवा, सुनसरी ।</p>
         </div>
 
         {/* Subject Line */}
         <div className="mb-3 text-center">
-          <p className="font-bold underline">विषय :- नेपाली नागरिकताको प्रमाण-पत्रको प्रतिलिपि पाऊँ ।</p>
+          <p className="font-bold">विषय :- नेपाली नागरिकताको प्रमाण-पत्रको प्रतिलिपि पाऊँ ।</p>
+        </div>
+        <div>
+          <p className="text-lg">महोदय,</p>
         </div>
 
         {/* Main Content */}
         <div className="mb-4 space-y-3">
-          <p className="text-justify">
-            मैले मेजिष्ट्रेट अफिस/अञ्चलाधीशको कार्यालय/जिल्ला प्रशासन कार्यालय धनगढी, कैलाली/यसै कार्यालयबाट देहायको विवरण भएको
-            नेपाली नागरिकताको प्रमाण-पत्र लिएकोमा सो प्रमाण-पत्रको सक्कल प्रति झुत्रो भएको÷हराएको÷नयाँ ढाँचाको आवश्यकता भएको हुँदा
-            सोको प्रतिलिपि पाउनका लागि सो नागरिकता प्रमाण पत्रको सक्कल÷नक्कल प्रति संलग्न राखी रु. १३/- (तेह्र) को टिकट टाँसी सिफारिस
-            सहित यो निवेदन पेश गरेको छु ।
+          <p className="text-justify indent-12">
+            मैले मेजिष्ट्रेट अफिस ...../..... अञ्चलाधीशको कार्यालय..... गोश्वारा कार्यालय र यसै कार्यालयबाट देहायको विवरण भएको
+            नेपाली नागरिकताको प्रमाण-पत्र लिएकोमा सो प्रमाण-पत्रको सक्कल झुत्रो भएको/ हराएको/ नयाँ ढाँचाको आवश्यक भएको हुँदा
+            सोको प्रतिलिपि पाउनका लागि सो नागरिकता प्रमाण पत्रको सक्कल/ नक्कल प्रति संलग्न राखी रु. १० (दश) को टिकट टाँसी सिफारिस
+            सहित यो निवेदन पेश गर्दछु ।
           </p>
-
-          <p className="font-bold">मैले नागरिकताको प्रमाणपत्र लिँदाको विवरण यस प्रकार छ:-</p>
 
           {/* Details Section */}
           <div className="space-y-2 border-2 p-1">
-            <p>१. ना.प्र.प.नं:- <strong>{citizenshipNumber || "67-01-69-01341"}</strong> मिति:- <strong>{citizenshipIssueDate || "२०३९/०२/३२"}</strong> किसिम:- <strong>{citizenshipType || "जन्मसिद्ध"}</strong></p>
-            <p>२. नाम थर:- <strong>{fullName || "राम बहादुर खड्का"}</strong></p>
-            <p className="ml-4">Full Name (In Block Letter) <strong>{fullName || "RAM BAHADUR KHADKA"}</strong></p>
-            <p>३. लिंग :- <strong>{gender === 'Male' ? 'पुरुष' : 'महिला'}</strong> Sex <strong>{gender === 'Male' ? 'M' : 'F'}</strong></p>
-            <p>४. जन्म स्थान :- <strong>{birthPlace || "धनगढी"}</strong></p>
-            <p className="ml-4">Place Of Birth (In Block Letter) <strong>{birthPlace || "DHANGADHI"}</strong></p>
-            <p>५. स्थायी बासस्थान :- सुदूरपश्चिम प्रदेश जिल्ला <strong>{district || "कैलाली"}</strong> गा.पा./न.पा. <strong>{municipality || "धनगढी"}</strong> वडा नं <strong>{wardNo || "१"}</strong></p>
-            <p className="ml-4">Permanent Address : Sudurpashchim Province District <strong>{district || "KAILALI"}</strong> Municipality <strong>{municipality || "DHANGADHI"}</strong> Ward No <strong>{wardNo || "1"}</strong></p>
+            <p>१. ना.प्र.प.नं.- <strong>{citizenshipNumber || "67-01-69-01341"}</strong> मिति:- <strong>{citizenshipIssueDate || "२०३९/०२/३२"}</strong> किसिम:- <strong>{citizenshipType || "जन्मसिद्ध"}</strong></p>
+            <p>२. नाम, थर - <strong>{nFullName || "राम बहादुर खड्का"}</strong></p>
+            <p className="ml-4">Full Name (In Block) <strong>{fullName || "RAM BAHADUR KHADKA"}</strong></p>
+            <div className="flex">
+              <p>३. लिंग :- <strong>{gender}</strong> SEX - <strong>{gender === 'पुरुष' ? 'Male' : (gender === 'महिला' ? 'Female' : 'Other')}</strong></p>
+              <p>४. जन्म स्थान - <strong>{birthPlace}</strong></p>
+            </div>
+            <p>५. स्थायी बासस्थान -जिल्ला {nDistrict}</p> 
+            <p> {nMunicipality}{nWardNo }</p>
+            <p className="">Permanent Address : District <strong>{district}</strong></p>
+            <p>Sub-metropolitan City <strong>{municipality}</strong> Ward No. <strong>{wardNo}</strong></p>
+           
             <p>६. जन्म मिति :- <strong>{bYear || "२०४९"}</strong> साल <strong>{bMonth || "०९"}</strong> महिना <strong>{bDay || "१०"}</strong> गते</p>
             <p className="ml-4">Date Of Birth (A.D) <strong>{yearStr || "1992"}</strong> Year <strong>{monthStr || "12"}</strong> Month <strong>{dayStr || "26"}</strong> Day</p>
             <p>७. बाबुको नाम, थर :- <strong>{fatherName || "तेज बहादुर खड्का"}</strong> नागरिकताको किसिम <strong>{fatherCitizenshipType || "जन्मसिद्ध"}</strong></p>
@@ -91,16 +101,10 @@ console.log("redux user", user)
           <div className="text-center">
             <p className="text-xs mb-2">औंठाको छाप</p>
             <table className="table-fixed border-2 border-black text-left">
-              <thead>
-                <tr>
-                  <th className="border-2 border-black px-6 py-1">Daya</th>
-                  <th className="border-2 border-black px-6 py-1">Baya</th>
-                </tr>
-              </thead>
               <tbody>
                 <tr>
-                  <td className="border-2 border-black px-4 py-8"></td>
-                  <td className="border-2 border-black px-4 py-8"></td>
+                  <td className="border-2 border-black px-8 py-8"></td>
+                  <td className="border-2 border-black px-8 py-8"></td>
                 </tr>
               </tbody>
             </table>
@@ -136,7 +140,7 @@ console.log("redux user", user)
             <div className="text-right">
               <p>सिफारिस गर्नेको:</p>
               <p>दस्तखत :</p>
-              <p>नाम थर : <strong>डम्बर बहादुर सिंह</strong></p>
+              <p>नाम थर : <strong>रतन कार्की</strong></p>
               <p>पद : <strong>वडा अध्यक्ष</strong></p>
             </div>
           </div>

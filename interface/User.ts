@@ -13,19 +13,23 @@ export interface LoginUserData {
 export interface UserData {
   id: string;
   fullName: string;
+  nFullName:string;
   dob: string;
   fatherName: string;
   motherName: string;
   birthPlace: string;
   gender: string;
-  address: string;
   mobile: string;
   citizenshipNumber: string;
   citizenshipIssueDate: string;
   citizenshipType: string;
+  citizenshipIssuePlace: string;
   district: string;
+nDistrict : string;
   municipality: string;
-  wardNo: string;
+   nMunicipality: string;
+  wardNo: number;
+  nWardNo: string;
   fatherCitizenshipType: string;
   motherCitizenshipType: string;
   spouseName: string;

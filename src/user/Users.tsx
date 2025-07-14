@@ -44,7 +44,7 @@ const Users = () => {
                         {user.fullName}
                       </td>
                       <td scope="row" className="px-6 text-base font-medium whitespace-nowrap dark:text-blue-100">
-                        {user.address}
+                        {user.municipality}-{user.wardNo}, {user.district}
                       </td>
                       <td scope="row" className="px-6 text-base font-medium whitespace-nowrap dark:text-blue-100">
                         {user.mobile}
