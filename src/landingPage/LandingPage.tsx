@@ -1,4 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import Img from '../assets/images/Itahari.jpg'
+import Img1 from '../assets/images/Itahari1.jpg'
+import Img2 from '../assets/images/Itahari_Chowk.jpg'
+import Img3 from '../assets/images/sagarmatha.jfif'
+import Img4 from '../assets/images/ward1.webp'
+
 
 interface ImageData {
   url: string;
@@ -23,29 +29,41 @@ interface ImageErrors {
 }
 
 const LandingPage: React.FC = () => {
-  const [currentSlide, setCurrentSlide] = useState<number>(0);
-  const [isLoaded, setIsLoaded] = useState<boolean>(false);
-  const [imageErrors, setImageErrors] = useState<ImageErrors>({});
+  const [currentSlide, setCurrentSlide] = useState < number > (0);
+  const [isLoaded, setIsLoaded] = useState < boolean > (false);
+  const [imageErrors, setImageErrors] = useState < ImageErrors > ({});
 
   // Updated image URLs with fallbacks
   const images: ImageData[] = [
     {
-      url: 'https://upload.wikimedia.org/wikipedia/commons/a/ad/Itahari..jpg',
+      url: Img,
       title: 'इटहरी उपमहानगरपालिका',
       subtitle: 'प्रगतिशील शहरको नमुना',
-      fallback: 'https://images.unsplash.com/photo-1480714378408-67cf0d13bc1f?w=1920&h=1080&fit=crop'
+      fallback: Img4,
     },
     {
-      url: 'https://lh3.googleusercontent.com/gps-cs-s/AC9h4nrJt9izfpBV49q6mD81VYr3FcjDKJk4QJGfw3BzFQhjJXEvsWcjUN6Q_c3EhnunaGDbq9hqgnL2R0ZAMCYvJqj_g6CfEOHCTC7e58Me0-CS8mdvZCL7lfSGRlrV5mND-SdxvqCbIw=s680-w680-h510-rw',
+      url: Img1,
       title: 'आधुनिक प्रशासनिक भवन',
       subtitle: 'नागरिक सेवाको केन्द्रबिन्दु',
-      fallback: 'https://images.unsplash.com/photo-1555636222-cae831e670b3?w=1920&h=1080&fit=crop'
+      fallback: Img,
     },
     {
-      url: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&h=1080&fit=crop',
+      url: Img2,
       title: 'सामुदायिक विकास',
       subtitle: 'सबै नागरिकको उन्नतिमा प्रतिबद्ध',
-      fallback: 'https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=1920&h=1080&fit=crop'
+      fallback: Img1
+    },
+    {
+      url: Img3,
+      title: 'सामुदायिक विकास',
+      subtitle: 'सबै नागरिकको उन्नतिमा प्रतिबद्ध',
+      fallback: Img2,
+    },
+    {
+      url: Img4,
+      title: 'सामुदायिक विकास',
+      subtitle: 'सबै नागरिकको उन्नतिमा प्रतिबद्ध',
+      fallback: Img3,
     }
   ];
 

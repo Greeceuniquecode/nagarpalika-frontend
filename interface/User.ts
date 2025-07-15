@@ -4,16 +4,16 @@ export interface LoginCredentials {
 }
 
 export interface LoginUserData {
-    email: string | null;
-    password: string | null;
-    name: string;
-    role: string;
+  email: string | null;
+  password: string | null;
+  name: string;
+  role: string;
 }
 
 export interface UserData {
   id: string;
   fullName: string;
-  nFullName:string;
+  nFullName: string;
   dob: string;
   fatherName: string;
   motherName: string;
@@ -25,9 +25,9 @@ export interface UserData {
   citizenshipType: string;
   citizenshipIssuePlace: string;
   district: string;
-nDistrict : string;
+  nDistrict: string;
   municipality: string;
-   nMunicipality: string;
+  nMunicipality: string;
   wardNo: number;
   nWardNo: string;
   fatherCitizenshipType: string;
