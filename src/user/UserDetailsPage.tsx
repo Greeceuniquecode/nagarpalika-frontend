@@ -157,13 +157,13 @@ const UserDetailsPage = () => {
           <p className="text-center font-bold mb-3 underline">(प्रतिलिपि ना.प्र.प.का लागि सिफारिस)</p>
 
           <p className="mb-4 text-justify">
-            {municipality || "धनगढी"} गाउँपालिका/नगरपालिका वडा नं {wardNo || "१"} मा मिति २०४९/०९/१० मा जन्म भई हालसम्म स्थायी रुपमा बसोबास गरी आएका
+            {nMunicipality || "धनगढी"} वडा नं {wardNo || "१"} मा मिति २०४९/०९/१० मा जन्म भई हालसम्म स्थायी रुपमा बसोबास गरी आएका
             यसमा लेखिएका श्रीमान् {fatherName || "तेज बहादुर खड्का"} को छोरा/छोरी/पत्नी वर्ष 33 को श्री/सुश्री/श्रीमती {nFullName || "राम बहादुर खड्का"} लाई म राम्ररी चिन्छु ।
             निजको माग बमोजिम उपयुक्त विवरण भएको नं. {citizenshipNumber} मिति {nepaliIssueDate} को नागरिकता प्रमाणपत्रको सक्कल प्रति झुत्रो भएको/हराएको/नयाँ
             ढाँचाको आवश्यक भएको व्यहोरा साँचो हुँदा प्रतिलिपि बनाई दिएमा फरक नपर्ने व्यहोरा सिफारिस गर्दछु।
           </p>
 
-          <p className="mb-4">मिति:- २०८०÷१२÷१४</p>
+          <p className="mb-4">मिति:- {nepaliToday}</p>
    <div className="flex justify-end mt-4">
           <div className="border-2 border-black w-[60px] h-[80px] text-[10px] flex flex-col justify-center items-center text-center leading-tight">
             <p>निवेदकको हालसालै</p>
