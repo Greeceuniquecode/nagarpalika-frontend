@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Img from '../assets/images/Itahari.jpg'
+import Img from '../assets/images/itahari.jpg'
 import Img1 from '../assets/images/Itahari1.jpg'
 import Img2 from '../assets/images/Itahari_Chowk.jpg'
 import Img3 from '../assets/images/sagarmatha.jfif'

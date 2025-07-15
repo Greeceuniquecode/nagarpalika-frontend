@@ -140,7 +140,6 @@ const UserDetailsPage = () => {
                     </tr>
                   </tbody>
                 </table>
-
               </div>
               <div className="text-right space-y-1">
                 <p>निवेदकको</p>
@@ -163,32 +162,32 @@ const UserDetailsPage = () => {
             निजको माग बमोजिम उपयुक्त विवरण भएको नं. {citizenshipNumber} मिति {nepaliIssueDate} को नागरिकता प्रमाणपत्रको सक्कल प्रति झुत्रो भएको/हराएको/नयाँ
             ढाँचाको आवश्यक भएको व्यहोरा साँचो हुँदा प्रतिलिपि बनाई दिएमा फरक नपर्ने व्यहोरा सिफारिस गर्दछु।
           </p>
-          <div className="flex justify-center mt-4">
-            <div className="border-2 border-black w-[60px] h-[80px] text-[10px] flex flex-col justify-center items-center text-center leading-tight">
-              <p>निवेदकको हालसालै</p>
-              <p>खिचिएको फोटो</p>
-            </div>
-          </div>
-        </div>
-        <p className="mb-4">मिति:-{nepaliToday}</p>
 
-        <div className="flex justify-between items-start">
-          <div>
-            <p>कार्यालयको नाम र छाप:</p>
-            <p>इटहरी उपमहानगरपालिका</p>
-            <p>१ नम्वर वडा कार्यालय </p>
-          </div>
-          <div className="text-right">
-            <p>सिफारिस गर्नेको:</p>
-            <p>दस्तखत :</p>
-            <p>नाम थर : रतन कार्की</p>
-            <p>पद : वडा अध्यक्ष</p>
+          <p className="mb-4">मिति:- २०८०÷१२÷१४</p>
+   <div className="flex justify-end mt-4">
+          <div className="border-2 border-black w-[60px] h-[80px] text-[10px] flex flex-col justify-center items-center text-center leading-tight">
+            <p>निवेदकको हालसालै</p>
+            <p>खिचिएको फोटो</p>
           </div>
         </div>
       </div>
+          <div className="flex justify-between items-start">
+            <div>
+              <p>कार्यालयको नाम र छाप:</p>
+              <p>इटहरी उपमहानगरपालिका</p>
+              <p>१ नम्वर वडा कार्यालय </p>
+            </div>
+            <div className="text-right">
+              <p>सिफारिस गर्नेको:</p>
+              <p>दस्तखत :</p>
+              <p>नाम थर : रतन कार्की</p>
+              <p>पद : वडा अध्यक्ष</p>
+            </div>
+          </div>
+        </div>
 
-      {/* Photo Section */}
-
+        {/* Photo Section */}
+     
       {/* Print Button - hidden when printing */}
       <div className="mb-4 flex  print:hidden">
         <button
