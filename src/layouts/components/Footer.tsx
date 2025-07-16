@@ -1,4 +1,3 @@
-import Logo from '../../assets/logo/logo.png';
 const Footer = () => {
   return (
     <footer className="bg-gray-100 border-t-4 border-blue-800 print:hidden">
@@ -9,18 +8,14 @@ const Footer = () => {
           {/* Logo and Organization Info */}
           <div className="space-y-4">
             <div className="flex items-center gap-4">
-              <div className="h-12 w-12 rounded-full  flex items-center justify-center">
-                <img src={Logo} alt="Nepal Government website logo" />
-                              </div>
               <div>
-                <h3 className="text-xl font-mono font-semibold tracking-wide">इटहरी उपमहानगरपालिका</h3>
-                <p className="text-sm text-gray-600">Itahari Sub-Metropolitan City</p>
+                <h3 className="text-xl font-mono font-semibold tracking-wide">SajiloNepal</h3>
+                <p className="text-sm text-gray-600">Developed by: Greece Dahal</p>
+                     <p className="text-sm text-gray-700 leading-relaxed">
+        full Stack Software Developer.
+            </p>
               </div>
             </div>
-            <p className="text-sm text-gray-700 leading-relaxed">
-              सुनसरी जिल्लाको प्रमुख व्यापारिक केन्द्र र प्रशासनिक मुख्यालय। 
-              नागरिकहरूको सेवामा सधैं तत्पर।
-            </p>
           </div>
 
           {/* Contact Information */}
@@ -40,7 +35,7 @@ const Footer = () => {
                 <svg className="w-4 h-4 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
                 </svg>
-                <span>+977-025-580204</span>
+                <span>+977-9807040261</span>
               </div>
               
               <div className="flex items-center gap-2">
@@ -48,7 +43,7 @@ const Footer = () => {
                   <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
                   <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
                 </svg>
-                <span>info@itaharimun.gov.np</span>
+                <span>notgreece2@gmail.com</span>
               </div>
             </div>
           </div>
@@ -85,9 +80,9 @@ const Footer = () => {
         <div className="border-t border-gray-300 pt-6 text-center">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-sm text-gray-600">
-              <p>&copy; {new Date().getFullYear()} इटहरी उपमहानगरपालिका। सम्पूर्ण अधिकार सुरक्षित।</p>
+
               <p className="text-xs mt-1">
-                © {new Date().getFullYear()} Itahari Sub-Metropolitan City. All rights reserved.
+                © {new Date().getFullYear()} Greece Dahal. All rights reserved.
               </p>
             </div>
             <div className="flex space-x-4 text-xs text-gray-500">

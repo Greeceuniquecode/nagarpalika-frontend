@@ -29,6 +29,7 @@ const App = () => {
               <Route path="/users" element={<Users />} />
             </>
           )}
+          <Route path="/sifaris" element={<div className="p-10">Comming soon!!</div>} />
           <Route path="/home" element={<LandingPage />} />
           <Route path="/about-us" element={<AboutUsPage />} />
           <Route path="/contact-us" element={<div className="p-10">सम्पर्क पृष्ठ</div>} />

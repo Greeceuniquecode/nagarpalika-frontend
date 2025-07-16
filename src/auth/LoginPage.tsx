@@ -126,7 +126,7 @@ const LoginPage: React.FC = () => {
           <div className="flex items-center justify-center">
             <img src={Logo} className='w-18 h-[68px] bg-white rounded-full' alt="Logo" />
           </div>
-          <h1 className="text-2xl font-extrabold text-red-600 text-center">इटहरी उपमहानगरपालिका कार्यालय</h1>
+          <h1 className="text-2xl font-extrabold text-red-600 text-center">SajiloNepal</h1>
         </div>
 
         {/* Form */}

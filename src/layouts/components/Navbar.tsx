@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FiMenu, FiX } from "react-icons/fi";
-import Logo from "../../assets/logo/logo.png";
 import { toast, ToastContainer } from "react-toastify";
 
 const Navbar = () => {
@@ -35,8 +34,7 @@ const Navbar = () => {
           className="text-2xl tracking-widest font-mono flex gap-4 items-center"
           to="/"
         >
-          <img src={Logo} className="h-12 w-12 rounded-full" alt="Logo" />
-          <p className="hidden sm:block">इटहरी उपमहानगरपालिका</p>
+          <p className="hidden sm:block">SajiloNepal</p>
         </Link>
 
         {/* Mobile Menu Button */}
@@ -66,6 +64,14 @@ const Navbar = () => {
               to="/nagarikta"
             >
               नागरिकता
+            </Link>
+          )}
+               {isLoggedIn && (
+            <Link
+              className="bg-blue-600 text-white px-4 py-1 rounded-lg hover:scale-110 hover:bg-blue-700 duration-300"
+              to="/sifaris"
+            >
+              घर बाटो सिफारिस 
             </Link>
           )}
 

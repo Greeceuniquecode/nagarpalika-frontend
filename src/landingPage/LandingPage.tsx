@@ -166,13 +166,13 @@ const LandingPage: React.FC = () => {
               </div>
             </div>
             <h1 className="text-5xl md:text-7xl font-bold text-black-600 mb-4 font-mono tracking-wide drop-shadow-lg">
-              इटहरी उपमहानगरपालिका
+             SajiloNepal
             </h1>
             <h1 className="text-4xl md:text-7xl font-bold mb-4 font-mono tracking-wide drop-shadow-lg">
               १ नम्वर वडा कार्यालय
             </h1>
             <p className="text-xl md:text-2xl mb-2 text-gray-200 drop-shadow-md">
-              Itahari Sub-Metropolitan City
+              SajiloNepal
             </p>
             <p className="text-lg md:text-xl mb-8 text-gray-300 drop-shadow-md">
               सुनसरी जिल्ला, प्रदेश नं. १, नेपाल
