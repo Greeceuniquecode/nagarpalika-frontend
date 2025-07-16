@@ -1,8 +1,7 @@
-import React from "react";
 import { useField } from "formik";
 import BikramSambatDatePicker from "bs-datepicker"; // Assuming this is your datepicker import
 
-const BSDatePicker = ({ name }) => {
+const BSDatePicker = ({ name }: { name: any }) => {
   const [field, meta, helpers] = useField(name);
 
   // A function to handle focus styles for custom component (if needed)
