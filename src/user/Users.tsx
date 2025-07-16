@@ -33,6 +33,9 @@ const Users = () => {
                   <th scope="col" className="px-6 py-3 text-base font-bold">
                     Citizenship
                   </th>
+                  <th scope="col" className="px-6 py-3 text-base font-bold">
+                    DOB
+                  </th>
                 </tr>
               </thead>
               <tbody>
@@ -54,6 +57,9 @@ const Users = () => {
                       </td>
                       <td scope="row" className="px-6 text-base font-medium whitespace-nowrap dark:text-blue-100">
                         {user.citizenshipNumber}
+                      </td>
+                      <td scope="row" className="px-6 text-base font-medium whitespace-nowrap dark:text-blue-100">
+                        {user.dob}
                       </td>
                     </tr>
                   ))}

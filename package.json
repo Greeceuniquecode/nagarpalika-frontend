@@ -13,6 +13,7 @@
     "@reduxjs/toolkit": "^2.8.2",
     "axios": "^1.10.0",
     "bikram-sambat-js": "^1.0.2",
+    "bs-datepicker": "^1.0.3",
     "formik": "^2.4.6",
     "lucide-react": "^0.525.0",
     "pg": "^8.16.3",
