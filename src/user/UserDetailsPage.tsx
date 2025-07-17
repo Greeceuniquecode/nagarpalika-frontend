@@ -129,7 +129,7 @@ if (monthDiff < 0 || (monthDiff === 0 && currentDate.getDate() < adDobDate.getDa
             <p className="ml-3"> {nMunicipality} वडा नं.-{nWardNo}</p>
             <div className="text-[16px] ml-3">
               <p className="">Permanent Address : District {district}</p>
-              <p>Sub-metropolitan City:- {municipality} Ward No. {wardNo}</p>
+              <p>Sub-Metropolitan City:- {municipality} Ward No. {wardNo}</p>
             </div>
 
             <p>६. जन्म मिति :- {nepaliDob}</p>
