@@ -8,6 +8,7 @@ import AboutUsPage from "./dashboard/aboutUsPage";
 import PageNotFound from "./global/PageNotFound";
 import UserDetailsPage from "./user/UserDetailsPage";
 import Users from "./user/Users";
+import MalpotPage from "./user/MalpotPage";
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   useEffect(() => {
@@ -29,7 +30,7 @@ const App = () => {
               <Route path="/users" element={<Users />} />
             </>
           )}
-          <Route path="/sifaris" element={<div className="p-10">Comming soon!!</div>} />
+          <Route path="/sifaris" element={<MalpotPage />} />
           <Route path="/home" element={<LandingPage />} />
           <Route path="/about-us" element={<AboutUsPage />} />
           <Route path="/contact-us" element={<div className="p-10">सम्पर्क पृष्ठ</div>} />
