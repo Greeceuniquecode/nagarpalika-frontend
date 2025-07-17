@@ -23,13 +23,14 @@ const MalpotPage = () => {
                         </h1>
                         <h2 className="text-3xl text-black mb-5">
                             Itahari Sub-Metropolitan City
-                        </h2>
-                        <p className="text-xl text-gray-600">
+                                 <p className="text-2xl text-black">
                             १ नं. वडा कार्यालय
                         </p>
-                        <p className="text-xl text-gray-600">
-                            कोशी प्रदेश नेपाल
+                        <p className="text-xl text-black">
+                            कोशी प्रदेश, नेपाल
                         </p>
+                        </h2>
+                   
                     </div>
                 </div>
 
