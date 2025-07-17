@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { Eye, EyeOff, Lock, User, Shield } from 'lucide-react';
 import Logo from "../assets/logo/logo.png";
 import { Link } from "react-router-dom";
-import type { LoginCredentials, LoginUserData } from '../../interface/User';
 import { toast } from 'react-toastify';
+import type { LoginUserData, LoginCredentials } from '../../interface/User';
 
-const LoginPage: React.FC = () => {
+const LoginPage = () => {
   const [credentials, setCredentials] = useState<LoginCredentials>({ email: '', password: '' });
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);

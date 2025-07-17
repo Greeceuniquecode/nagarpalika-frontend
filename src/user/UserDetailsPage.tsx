@@ -33,7 +33,7 @@ const UserDetailsPage = () => {
   } = user || {};
 
   const [bYear, bMonth, bDay] = dob.split("-");
-    const adDOB = new BikramSambat(dob, "BS").toAD();
+  const adDOB = new BikramSambat(dob, "BS").toAD();
   const [yearStr, monthStr, dayStr] = adDOB.split("-");
   const nepaliDob = `${toNepalidate(bYear)} साल ${toNepalidate(bMonth)} महिना ${toNepalidate(bDay)} गते`;
   const nDob = `${toNepalidate(bYear)}/${toNepalidate(bMonth)}/${toNepalidate(bDay)}`;
@@ -43,26 +43,33 @@ const UserDetailsPage = () => {
   const [cYear, cMonth, cDay] = bsCurrent.split("-");
   const nToday = `${toNepalidate(cYear)}/${toNepalidate(cMonth)}/${toNepalidate(cDay)}`;
   const nepaliToday = `${toNepalidate(cYear)} साल ${toNepalidate(cMonth)}  महिना ${toNepalidate(cDay)} गते`;
+const adDobDate = new Date(parseInt(yearStr), parseInt(monthStr) - 1, parseInt(dayStr));
+  let age = currentDate.getFullYear() - adDobDate.getFullYear();
+const monthDiff = currentDate.getMonth() - adDobDate.getMonth();
 
+// Adjust age if birthday hasn't occurred yet this year
+if (monthDiff < 0 || (monthDiff === 0 && currentDate.getDate() < adDobDate.getDate())) {
+    age--;
+}
   const [iYear, iMonth, iDay] = citizenshipIssueDate.split("-");
   const nepaliIssueDate = `${toNepalidate(iYear)}/${toNepalidate(iMonth)}/${toNepalidate(iDay)}`;
 
   console.log("Nepali dob", dob)
 
-//   // Convert BS to AD
-// const adDate = new BikramSambat(bsDate, "BS").toAD();
+  //   // Convert BS to AD
+  // const adDate = new BikramSambat(bsDate, "BS").toAD();
 
-// // Split AD date into components
-// const [aYear, aMonth, aDay] = adDate.split("-");
+  // // Split AD date into components
+  // const [aYear, aMonth, aDay] = adDate.split("-");
 
-// // Convert parts to Nepali numerals (assuming this is your function)
-// const nepaliAdDateFormatted = `${toNepalidate(aYear)} साल ${toNepalidate(aMonth)} महिना ${toNepalidate(aDay)} गते`;
-// const nepaliAdDateSlash = `${toNepalidate(aYear)}/${toNepalidate(aMonth)}/${toNepalidate(aDay)}`;
+  // // Convert parts to Nepali numerals (assuming this is your function)
+  // const nepaliAdDateFormatted = `${toNepalidate(aYear)} साल ${toNepalidate(aMonth)} महिना ${toNepalidate(aDay)} गते`;
+  // const nepaliAdDateSlash = `${toNepalidate(aYear)}/${toNepalidate(aMonth)}/${toNepalidate(aDay)}`;
 
-// // You can also get current date in AD if needed
-// const currentDate = new Date().toISOString().split("T")[0]; // current date in "YYYY-MM-DD"
-// const [cYear, cMonth, cDay] = currentDate.split("-");
-// const nepaliToday = `${toNepalidate(cYear)} साल ${toNepalidate(cMonth)} महिना ${toNepalidate(cDay)} गते`;
+  // // You can also get current date in AD if needed
+  // const currentDate = new Date().toISOString().split("T")[0]; // current date in "YYYY-MM-DD"
+  // const [cYear, cMonth, cDay] = currentDate.split("-");
+  // const nepaliToday = `${toNepalidate(cYear)} साल ${toNepalidate(cMonth)} महिना ${toNepalidate(cDay)} गते`;
 
 
   const handlePrint = () => window.print();
@@ -129,18 +136,25 @@ const UserDetailsPage = () => {
             <p className="text-[16px]">Date Of Birth (A.D) {yearStr || "1992"} Year {monthStr || "12"} Month {dayStr || "26"} Day</p>
             <p>७. बाबुको नाम, थर :- {fatherName}</p>
             <div className="grid grid-cols-3">
-              <p className="col-span-2 ml-3">वतन - {nMunicipality} वडा नं {nWardNo}</p>
-              <p> नागरिकताको किसिम- {fatherCitizenshipType || "जन्मसिद्ध"}</p>
+              {fatherName ? (
+                <p className="col-span-2 ml-3">वतन - {nMunicipality} वडा नं {nWardNo}</p>
+              ) : (<p className="col-span-2 ml-3">वतन - </p>
+              )}              <p> नागरिकताको किसिम- {fatherCitizenshipType}</p>
             </div>
             <p>८. आमाको नाम, थर :- {motherName} </p>
             <div className="grid grid-cols-3">
-              <p className="col-span-2 ml-3">वतन - {nMunicipality} वडा नं {nWardNo}</p>
-              <p> नागरिकताको किसिम- {motherCitizenshipType || "जन्मसिद्ध"}</p>
+              {motherName ? (
+                <p className="col-span-2 ml-3">वतन - {nMunicipality} वडा नं {nWardNo}</p>
+              ) : (<p className="col-span-2 ml-3">वतन - </p>
+              )}
+              <p> नागरिकताको किसिम- {motherCitizenshipType}</p>
             </div>
             <p>९. पति/पत्नीको नाम, थर :- {spouseName}</p>
             <div className="grid grid-cols-3">
-              <p className="col-span-2 ml-3">वतन - {nMunicipality} वडा नं {nWardNo}</p>
-              <p> नागरिकताको किसिम- {spouseCitizenshipType || "जन्मसिद्ध"}</p>
+              {spouseName ? (
+                <p className="col-span-2 ml-3">वतन - {nMunicipality} वडा नं {nWardNo}</p>
+              ) : (<p className="col-span-2 ml-3">वतन - </p>
+              )}              <p> नागरिकताको किसिम- {spouseCitizenshipType}</p>
             </div>
             <p className="text-justify">
               माथि लेखिएको विवरण मैले जिल्ला प्रशासन कार्यालय, {citizenshipIssuePlace} लिएको नं. {citizenshipNumber} को ना.प्र.प.को व्यहोरा सँग दुरुस्त छ फरक छैन ।
@@ -176,8 +190,8 @@ const UserDetailsPage = () => {
           <div className="pt-4">
             <p className="text-center font-bold underline">(प्रतिलिपि ना.प्र.प.का लागि सिफारिस)</p>
             <p className="mb-4 text-justify">
-              {birthPlace } वडा नं {nWardNo } मा मिति {nDob} मा जन्म भई हालसम्म {nMunicipality} वडा नं {nWardNo} मा स्थायी रुपमा बसोबास गरी आएका
-              यसमा लेखिएका श्रीमान् {fatherName } को छोरा/छोरी/पत्नी वर्ष 33 को श्री/सुश्री/श्रीमती {nFullName || "राम बहादुर खड्का"} लाई म राम्ररी चिन्दछु ।
+              {birthPlace} वडा नं {nWardNo} मा मिति {nDob} मा जन्म भई हालसम्म {nMunicipality} वडा नं {nWardNo} मा स्थायी रुपमा बसोबास गरी आएका
+              यसमा लेखिएका श्रीमान् {fatherName} को छोरा/छोरी/पत्नी वर्ष {age} को श्री/सुश्री/श्रीमती {nFullName || "राम बहादुर खड्का"} लाई म राम्ररी चिन्दछु ।
               निजको माग बमोजिम उपयुक्त विवरण भएको नं. {citizenshipNumber} मिति {nepaliIssueDate} को नागरिकता प्रमाणपत्रको सक्कल प्रति झुत्रो भएको/हराएको/नयाँ
               ढाँचाको आवश्यक भएको व्यहोरा साँचो हुँदा प्रतिलिपि बनाई दिएमा फरक नपर्ने व्यहोरा सिफारिस गर्दछु।
             </p>

@@ -6,13 +6,14 @@ import { v4 as uuidv4 } from "uuid";
 import { addUser } from "../redux/slices/userSlice";
 import type { UserData } from "../../interface/User";
 import BSDatePicker from "../global/BSDatePicker";
+import NepaliInputField from "../global/NepaliInputField";
 
 const validationSchema = Yup.object({
   fullName: Yup.string().required("Required"),
   dob: Yup.string().required("Required"),
   gender: Yup.string().required("Required"),
-  fatherName: Yup.string().required("Required"),
-  motherName: Yup.string().required("Required"),
+  fatherName: Yup.string(),
+  motherName: Yup.string(),
   birthPlace: Yup.string().required("Required"),
   mobile: Yup.string()
     .matches(/^[0-9]{10}$/, "Must be a valid 10-digit number")
@@ -27,10 +28,10 @@ const validationSchema = Yup.object({
   nWardNo: Yup.string().required("Required"),
   citizenshipIssuePlace: Yup.string().required("Required"),
   wardNo: Yup.string().required("Required"),
-  fatherCitizenshipType: Yup.string().required("Required"),
-  motherCitizenshipType: Yup.string().required("Required"),
-  spouseName: Yup.string().required("Required"),
-  spouseCitizenshipType: Yup.string().required("Required"),
+  fatherCitizenshipType: Yup.string(),
+  motherCitizenshipType: Yup.string(),
+  spouseName: Yup.string(),
+  spouseCitizenshipType: Yup.string(),
 });
 
 const initialValues: UserData = {
@@ -67,7 +68,6 @@ const UserIdForm = () => {
     dispatch(addUser(values));
     navigate("/user-details");
   };
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-100 to-blue-50 py-8 px-4">
       <div className="max-w-4xl mx-auto">
@@ -105,10 +105,15 @@ const UserIdForm = () => {
                     <label className="block text-sm font-medium text-gray-700">
                       नाम:
                     </label>
-                    <Field
+                    {/* <Field
                       name="nFullName"
                       type="text"
                       className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-gray-50 focus:bg-white"
+                    /> */}
+                    <NepaliInputField
+                      name="nFullName"
+                      placeholder="किरण वारकाेटी"
+                      className=""
                     />
                     <ErrorMessage
                       name="fullName"
@@ -136,11 +141,6 @@ const UserIdForm = () => {
                       जन्म मिति:
                     </label>
                     <BSDatePicker name="dob" />
-                    <ErrorMessage
-                      name="dob"
-                      component="div"
-                      className="text-red-500 text-sm mt-1"
-                    />
                   </div>
                 </div>
 
@@ -194,10 +194,10 @@ const UserIdForm = () => {
                     <label className="block text-sm font-medium text-gray-700">
                       ना.प्र.प. (Citizenship No.):
                     </label>
-                    <Field
+                    <NepaliInputField
                       name="citizenshipNumber"
-                      type="text"
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-gray-50 focus:bg-white"
+                      placeholder=""
+                      className=""
                     />
                     <ErrorMessage
                       name="citizenshipNumber"
@@ -210,10 +210,10 @@ const UserIdForm = () => {
                     <label className="block text-sm font-medium text-gray-700">
                       ना.प्र.प. (Issue Place):
                     </label>
-                    <Field
+                    <NepaliInputField
                       name="citizenshipIssuePlace"
-                      type="text"
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-gray-50 focus:bg-white"
+                      placeholder=""
+                      className=""
                     />
                     <ErrorMessage
                       name="citizenshipIssuePlace"
@@ -284,28 +284,40 @@ const UserIdForm = () => {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   <div className="space-y-2">
                     <label className="block text-sm font-medium text-gray-700">जिल्ला:</label>
-                    <Field name="nDistrict" type="text"
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-gray-50 focus:bg-white" />
+                    <NepaliInputField
+                      name="nDistrict"
+                      placeholder=""
+                      className=""
+                    />
                     <ErrorMessage name="nDistrict" component="div" className="text-red-500 text-sm mt-1" />
                   </div>
                   <div className="space-y-2">
                     <label className="block text-sm font-medium text-gray-700">न.पा./गा.वि.स.:</label>
-                    <Field name="nMunicipality" type="text"
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-gray-50 focus:bg-white" />
+                    <NepaliInputField
+                      name="nMunicipality"
+                      placeholder=""
+                      className=""
+                    />
                     <ErrorMessage name="nMunicipality" component="div" className="text-red-500 text-sm mt-1" />
                   </div>
                   <div className="space-y-2">
                     <label className="block text-sm font-medium text-gray-700">वडा नं.:</label>
-                    <Field name="nWardNo" type="text"
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-gray-50 focus:bg-white" />
+                    <NepaliInputField
+                      name="nWardNo"
+                      placeholder=""
+                      className=""
+                    />
                     <ErrorMessage name="nWardNo" component="div" className="text-red-500 text-sm mt-1" />
                   </div>
                 </div>
 
                 <div className="space-y-2">
                   <label className="block text-sm font-medium text-gray-700">जन्म स्थान:</label>
-                  <Field name="birthPlace" type="text"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-gray-50 focus:bg-white" />
+                  <NepaliInputField
+                    name="birthPlace"
+                    placeholder=""
+                    className=""
+                  />
                   <ErrorMessage name="birthPlace" component="div" className="text-red-500 text-sm mt-1" />
                 </div>
 
@@ -317,8 +329,11 @@ const UserIdForm = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <label className="block text-sm font-medium text-gray-700">बाबुको नाम:</label>
-                    <Field name="fatherName" type="text"
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-gray-50 focus:bg-white" />
+                    <NepaliInputField
+                      name="fatherName"
+                      placeholder=""
+                      className=""
+                    />
                     <ErrorMessage name="fatherName" component="div" className="text-red-500 text-sm mt-1" />
                   </div>
                   <div className="space-y-2">
@@ -340,8 +355,11 @@ const UserIdForm = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <label className="block text-sm font-medium text-gray-700">आमाको नाम:</label>
-                    <Field name="motherName" type="text"
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-gray-50 focus:bg-white" />
+                    <NepaliInputField
+                      name="motherName"
+                      placeholder=""
+                      className=""
+                    />
                     <ErrorMessage name="motherName" component="div" className="text-red-500 text-sm mt-1" />
                   </div>
                   <div className="space-y-2">
@@ -362,8 +380,11 @@ const UserIdForm = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <label className="block text-sm font-medium text-gray-700">पतिको/पत्नीको नाम:</label>
-                    <Field name="spouseName" type="text"
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-gray-50 focus:bg-white" />
+                    <NepaliInputField
+                      name="spouseName"
+                      placeholder=""
+                      className=""
+                    />
                     <ErrorMessage name="spouseName" component="div" className="text-red-500 text-sm mt-1" />
                   </div>
                   <div className="space-y-2">
