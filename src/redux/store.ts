@@ -3,18 +3,24 @@ import { configureStore } from "@reduxjs/toolkit";
 import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import userReducer from "./slices/userSlice";
+import malpotReducer from "./slices/malpotSlice";
+import { combineReducers } from "redux";
 
 const persistConfig = {
   key: "root",
   storage,
+  whitelist: ["users", "malpot"],
 };
 
-const persistedReducer = persistReducer(persistConfig, userReducer);
+const rootReducer = combineReducers({
+  users: userReducer,
+  malpot: malpotReducer,
+});
+
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = configureStore({
-  reducer: {
-    users: persistedReducer, // 🔁 now using local slice
-  },
+  reducer: persistedReducer,
 });
 
 const persistor = persistStore(store);

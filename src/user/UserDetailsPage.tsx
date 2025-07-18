@@ -1,7 +1,8 @@
 import { useSelector } from "react-redux";
 import type { RootState } from "../redux/store";
-import BikramSambat from "bikram-sambat-js";
+import BikramSambat, {ADToBS} from "bikram-sambat-js";
 import { toNepalidate } from "../global/NepaliDate";
+import { getNepalCurrentDate } from "../global/CurrentDate";
 
 const UserDetailsPage = () => {
   const user = useSelector((state: RootState) => {
@@ -38,8 +39,10 @@ const UserDetailsPage = () => {
   const nepaliDob = `${toNepalidate(bYear)} साल ${toNepalidate(bMonth)} महिना ${toNepalidate(bDay)} गते`;
   const nDob = `${toNepalidate(bYear)}/${toNepalidate(bMonth)}/${toNepalidate(bDay)}`;
 
-  const currentDate = new Date();
-  const bsCurrent = new BikramSambat(currentDate, "AD").toBS();
+const currentDate = getNepalCurrentDate();
+const bsCurrent = new BikramSambat(currentDate, "AD").toBS();
+
+  console.log(bsCurrent)
   const [cYear, cMonth, cDay] = bsCurrent.split("-");
   const nToday = `${toNepalidate(cYear)}/${toNepalidate(cMonth)}/${toNepalidate(cDay)}`;
   const nepaliToday = `${toNepalidate(cYear)} साल ${toNepalidate(cMonth)}  महिना ${toNepalidate(cDay)} गते`;

@@ -1,43 +1,67 @@
 import { Field, useField } from 'formik';
 import { type NepaliField } from '../../interface/Keyboard';
 
-// Updated English to Nepali character mapping based on actual Nepali keyboard layout
+// Updated character map based on provided keyboard layout image
 const englishToNepaliMap: Record<string, string> = {
-    // Numbers (normal state)
-    '1': '१', '2': '२', '3': '३', '4': '४', '5': '५', '6': '६', '7': '७', '8': '८', '9': '९', '0': '०',
+  // Number row and special keys
+  '`': 'ञ', '~': 'ञ',
+  '1': '१', '!': 'ज्ञ',
+  '2': '२', '@': 'ई',
+  '3': '३', '#': 'घ',
+  '4': '४', '$': 'ङ',
+  '5': '५', '%': 'छ',
+  '6': '६', '^': 'ट',
+  '7': '७', '&': 'ठ',
+  '8': '८', '*': 'ड',
+  '9': '९', '(': 'ण',
+  '0': '०', ')': 'ओ',
+  '-': '-', '_': 'ओ',
+  '=': '=', '+': '\u200C', // ZWNJ (zero width non-joiner)
 
-    // Numbers (shifted state) - from the keyboard image
-    '!': 'ज्ञ', '@': 'द्ध', '#': 'घ', '%': 'च', '^': 'त', '&': 'थ', '*': 'ध', '(': 'ढ', ')': 'ण',
-    '+': 'ः',
+  // QWERTY row
+  'q': 'त', 'Q': 'थ',
+  'w': 'भ', 'W': 'ठ',
+  'e': 'च', 'E': 'छ',
+  'r': 'त', 'R': 'ट',
+  't': 'थ', 'T': 'ठ',
+  'y': 'ग', 'Y': 'ङ',
+  'u': 'ष', 'U': 'ञ',
+  'i': 'य', 'I': 'ई',
+  'o': 'उ', 'O': 'ऊ',
+  'p': 'प', 'P': 'फ',
+  '[': 'े', '{': 'ै',
+  ']': 'ु', '}': 'ू',
+  '\\': '्', '|': 'ॐ',
 
-    // Top row letters (QWERTY) - normal state
-    'q': 'त्र', 'w': 'ध', 'e': 'भ', 'r': 'च', 't': 'त', 'y': 'थ', 'u': 'ग', 'i': 'ष', 'o': 'य', 'p': 'उ',
-    '[': 'ू', ']': 'े', '\\': 'ऽ',
+  // Home row
+  'a': 'श', 'A': 'श्र',
+  's': 'ह', 'S': 'ष',
+  'd': 'अ', 'D': 'आ',
+  'f': 'ख', 'F': 'घ',
+  'g': 'द', 'G': 'ध',
+  'h': 'ज', 'H': 'झ',
+  'j': 'ल', 'J': 'ळ',
+  'k': 'क', 'K': 'ख',
+  'l': 'स', 'L': 'श',
+  ';': '।', ':': ':',
+  '\'': 'ि', '"': 'ी',
 
-    // Top row letters (QWERTY) - shifted state
-    'Q': 'त्त', 'W': 'ध', 'E': 'भ', 'R': 'च', 'T': 'ट', 'Y': 'ञ', 'U': 'ग', 'I': 'क्ष', 'O': 'इ', 'P': 'ए',
-    '{': 'ै', '}': 'ं', '|': 'ऽ',
+  // Bottom row
+  'z': 'ञ', 'Z': 'ण',
+  'x': 'व', 'X': 'व्',
+  'c': 'ब', 'C': 'भ',
+  'v': 'न', 'V': 'न्',
+  'b': 'म', 'B': 'ं',
+  'n': 'ल', 'N': 'ः',
+  'm': 'त', 'M': 'त्',
+  ',': ',', '<': '«',
+  '.': '.', '>': '»',
+  '/': 'र', '?': 'ऱ',
 
-    // Home row letters (ASDF) - normal state
-    'a': 'श', 's': 'ह', 'd': 'अ', 'f': 'ख', 'g': 'द', 'h': 'ल', 'j': 'ः', 'k': 'प', 'l': '।', ';': 'स',
-    '\'': 'ि',
-
-    // Home row letters (ASDF) - shifted state
-    'A': 'आ', 'S': 'श', 'D': 'आ', 'F': 'ख', 'G': 'ग', 'H': 'ह', 'J': 'ज', 'K': 'क', 'L': 'ल', ':': 'स',
-    '"': 'ी',
-
-    // Bottom row letters (ZXCV) - normal state
-    'z': 'श', 'x': 'ह', 'c': 'अ', 'v': 'ख', 'b': 'द', 'n': 'ल', 'm': 'न', ',': ',', '.': '।', '/': 'र',
-
-    // Bottom row letters (ZXCV) - shifted state
-    'Z': 'श', 'X': 'ह', 'C': 'अ', 'V': 'ख', 'B': 'द', 'N': 'ल', 'M': 'न', '<': '्', '>': '।', '?': 'र',
-
-    // Special characters
-    '`': 'ञ', '~': 'ञ',
-
-    // Space
-    ' ': ' '
+  // Space
+  ' ': ' '
 };
+
 
 
 const NepaliInputField = ({ name, placeholder, className }: NepaliField) => {
@@ -56,20 +80,21 @@ const NepaliInputField = ({ name, placeholder, className }: NepaliField) => {
 
     return (
         <>
-            <div
-                className={`w-full border rounded-lg transition-all duration-200 bg-gray-50 ${meta.touched && meta.error
-                        ? "border-red-500 focus:ring-red-500"
-                        : "border-gray-300 focus-within:ring-2 focus-within:ring-blue-500 focus-within:border-transparent"
-                    }`}
-            ></div>
             <Field
                 {...field}
                 onChange={(e: any) => handleInputChange(e.target.value)}
                 type="text"
                 onBlur={() => helpers.setTouched(true)}
                 placeholder={placeholder}
-                className={className || "w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-gray-50 focus:bg-white"}
+                className={
+                    className ||
+                    "w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-gray-50 focus:bg-white"
+                }
+                style={{ fontFamily: 'Kalimati' }}
             />
+            {meta.touched && meta.error && (
+                <p className="text-red-500 text-sm mt-1">{meta.error}</p>
+            )}
         </>
     );
 };

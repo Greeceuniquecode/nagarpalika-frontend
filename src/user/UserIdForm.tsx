@@ -199,11 +199,6 @@ const UserIdForm = () => {
                       placeholder=""
                       className=""
                     />
-                    <ErrorMessage
-                      name="citizenshipNumber"
-                      component="div"
-                      className="text-red-500 text-sm mt-1"
-                    />
                   </div>
 
                   <div className="space-y-2">
@@ -215,11 +210,6 @@ const UserIdForm = () => {
                       placeholder=""
                       className=""
                     />
-                    <ErrorMessage
-                      name="citizenshipIssuePlace"
-                      component="div"
-                      className="text-red-500 text-sm mt-1"
-                    />
                   </div>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -228,11 +218,6 @@ const UserIdForm = () => {
                       जारी मिति:
                     </label>
                     <BSDatePicker name="citizenshipIssueDate" />
-                    <ErrorMessage
-                      name="citizenshipIssueDate"
-                      component="div"
-                      className="text-red-500 text-sm mt-1"
-                    />
                   </div>
 
                   <div className="space-y-2">
@@ -289,7 +274,6 @@ const UserIdForm = () => {
                       placeholder=""
                       className=""
                     />
-                    <ErrorMessage name="nDistrict" component="div" className="text-red-500 text-sm mt-1" />
                   </div>
                   <div className="space-y-2">
                     <label className="block text-sm font-medium text-gray-700">न.पा./गा.वि.स.:</label>
@@ -298,7 +282,6 @@ const UserIdForm = () => {
                       placeholder=""
                       className=""
                     />
-                    <ErrorMessage name="nMunicipality" component="div" className="text-red-500 text-sm mt-1" />
                   </div>
                   <div className="space-y-2">
                     <label className="block text-sm font-medium text-gray-700">वडा नं.:</label>
@@ -307,7 +290,6 @@ const UserIdForm = () => {
                       placeholder=""
                       className=""
                     />
-                    <ErrorMessage name="nWardNo" component="div" className="text-red-500 text-sm mt-1" />
                   </div>
                 </div>
 
@@ -318,7 +300,6 @@ const UserIdForm = () => {
                     placeholder=""
                     className=""
                   />
-                  <ErrorMessage name="birthPlace" component="div" className="text-red-500 text-sm mt-1" />
                 </div>
 
                 {/* Family Information Section */}
@@ -347,7 +328,6 @@ const UserIdForm = () => {
                       <option value="जन्म">जन्म</option>
 
                     </Field>
-                    <ErrorMessage name="fatherCitizenshipType" component="div" className="text-red-500 text-sm mt-1" />
                   </div>
 
                 </div>
@@ -360,7 +340,6 @@ const UserIdForm = () => {
                       placeholder=""
                       className=""
                     />
-                    <ErrorMessage name="motherName" component="div" className="text-red-500 text-sm mt-1" />
                   </div>
                   <div className="space-y-2">
                     <label className="block text-sm font-medium text-gray-700">आमाको नागरिकताको किसिम:</label>
@@ -385,7 +364,6 @@ const UserIdForm = () => {
                       placeholder=""
                       className=""
                     />
-                    <ErrorMessage name="spouseName" component="div" className="text-red-500 text-sm mt-1" />
                   </div>
                   <div className="space-y-2">
                     <label className="block text-sm font-medium text-gray-700">पतिको/पत्नीको नागरिकताको किसिम:</label>

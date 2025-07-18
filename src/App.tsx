@@ -9,6 +9,7 @@ import PageNotFound from "./global/PageNotFound";
 import UserDetailsPage from "./user/UserDetailsPage";
 import Users from "./user/Users";
 import MalpotPage from "./user/MalpotPage";
+import MalpotIdForm from "./user/MalpotIdForm";
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   useEffect(() => {
@@ -28,9 +29,11 @@ const App = () => {
               <Route path="/nagarikta" element={<UserIdForm />} />
               <Route path="/user-details" element={<UserDetailsPage />} />
               <Route path="/users" element={<Users />} />
+                    <Route path="/sifarisform" element={<MalpotIdForm/>} />
+          <Route path="/sifaris" element={<MalpotPage />} />
             </>
           )}
-          <Route path="/sifaris" element={<MalpotPage />} />
+    
           <Route path="/home" element={<LandingPage />} />
           <Route path="/about-us" element={<AboutUsPage />} />
           <Route path="/contact-us" element={<div className="p-10">सम्पर्क पृष्ठ</div>} />

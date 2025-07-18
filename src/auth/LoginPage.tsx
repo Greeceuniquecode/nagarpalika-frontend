@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Eye, EyeOff, Lock, User, Shield } from 'lucide-react';
-import Logo from "../assets/logo/logo.png";
+import Logo from "../assets/images/logo.png";
 import { Link } from "react-router-dom";
 import { toast } from 'react-toastify';
 import type { LoginUserData, LoginCredentials } from '../../interface/User';

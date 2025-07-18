@@ -69,7 +69,7 @@ const Navbar = () => {
                {isLoggedIn && (
             <Link
               className="bg-blue-600 text-white px-4 py-1 rounded-lg hover:scale-110 hover:bg-blue-700 duration-300"
-              to="/sifaris"
+              to="/sifarisform"
             >
               घर बाटो सिफारिस 
             </Link>
