@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import type { RootState } from "../redux/store";
-import BikramSambat, {ADToBS} from "bikram-sambat-js";
+import BikramSambat from "bikram-sambat-js";
 import { toNepalidate } from "../global/NepaliDate";
 import { getNepalCurrentDate } from "../global/CurrentDate";
 
