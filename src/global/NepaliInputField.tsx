@@ -274,7 +274,7 @@ const NepaliInputField = ({ name, placeholder, className }: NepaliField) => {
                     className ||
                     "w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-gray-50 focus:bg-white"
                 }
-                style={{ fontFamily: 'Kalimati, Preeti, sans-serif' }}
+                style={{ fontFamily: 'Kalimati, sans-serif' }}
             />
             {meta.touched && meta.error && (
                 <p className="text-red-500 text-sm mt-1">{meta.error}</p>
