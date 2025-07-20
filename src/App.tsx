@@ -8,8 +8,8 @@ import AboutUsPage from "./dashboard/aboutUsPage";
 import PageNotFound from "./global/PageNotFound";
 import UserDetailsPage from "./user/UserDetailsPage";
 import Users from "./user/Users";
-import MalpotPage from "./user/MalpotPage";
 import MalpotIdForm from "./user/MalpotIdForm";
+import MalpotForm from "./user/MalpotPage";
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   useEffect(() => {
@@ -29,11 +29,11 @@ const App = () => {
               <Route path="/nagarikta" element={<UserIdForm />} />
               <Route path="/user-details" element={<UserDetailsPage />} />
               <Route path="/users" element={<Users />} />
-                    <Route path="/sifarisform" element={<MalpotIdForm/>} />
-          <Route path="/sifaris" element={<MalpotPage />} />
+              <Route path="/sifarisform" element={<MalpotIdForm />} />
+              <Route path="/sifaris" element={<MalpotForm />} />
             </>
           )}
-    
+
           <Route path="/home" element={<LandingPage />} />
           <Route path="/about-us" element={<AboutUsPage />} />
           <Route path="/contact-us" element={<div className="p-10">सम्पर्क पृष्ठ</div>} />

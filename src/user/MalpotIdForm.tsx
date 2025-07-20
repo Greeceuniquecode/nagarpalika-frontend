@@ -1,9 +1,10 @@
-import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
-import { addMalpot } from "../redux/slices/malpotSlice";
+import { Form, useNavigate } from "react-router-dom";
+
+import { Formik } from "formik";
+import { ErrorMessage, Field } from "formik";
+
 const validationSchema = Yup.object({
   name: Yup.string().required("Required"),
   address: Yup.string().required("Required"),
@@ -28,14 +29,13 @@ const initialValues = {
 };
 
 const MalpotIdForm = () => {
-  const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const onSubmit = (values: typeof initialValues) => {
-    // Placeholder for submit logic
-    dispatch(addMalpot(values));
-    console.log("Form submitted:", values);
-    // You can dispatch an action or navigate as needed
+  const onSubmit = (_values: typeof initialValues, { setSubmitting }: { setSubmitting: (isSubmitting: boolean) => void }) => {
+    setSubmitting(true);
+    // Dispatch or other logic here isf needed
+    setSubmitting(false);
+    navigate("/sifaris"); // Navigate to MalpotPage route
   };
 
   return (
@@ -57,12 +57,14 @@ const MalpotIdForm = () => {
         {/* Form Section */}
         <div className="bg-white rounded-b-xl shadow-lg border-x border-b border-gray-200">
           <div className="p-8">
-            <Formik
-              initialValues={initialValues}
-              validationSchema={validationSchema}
-              onSubmit={onSubmit}
-            >
-              <Form className="space-y-6">
+              <Formik
+                initialValues={initialValues}
+                validationSchema={validationSchema}
+                onSubmit={(values, formikHelpers) => onSubmit(values, formikHelpers)}
+                validateOnChange={false}
+                validateOnBlur={false}
+              >
+                <Form className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <label className="block text-sm font-medium text-gray-700">
@@ -193,7 +195,7 @@ const MalpotIdForm = () => {
                   </div>
                 </div>
 
-                {/* Submit Button */}
+                {/* Submit Button */} 
                 <div className="flex justify-center pt-8">
                   <button
                     type="submit"
@@ -210,5 +212,4 @@ const MalpotIdForm = () => {
     </div>
   );
 };
-
 export default MalpotIdForm;

@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import type { RootState } from "../redux/store";
-import BikramSambat, {ADToBS} from "bikram-sambat-js";
+import BikramSambat from "bikram-sambat-js";
 import { toNepalidate } from "../global/NepaliDate";
 import { getNepalCurrentDate } from "../global/CurrentDate";
 
@@ -45,7 +45,7 @@ const bsCurrent = new BikramSambat(currentDate, "AD").toBS();
   console.log(bsCurrent)
   const [cYear, cMonth, cDay] = bsCurrent.split("-");
   const nToday = `${toNepalidate(cYear)}/${toNepalidate(cMonth)}/${toNepalidate(cDay)}`;
-  const nepaliToday = `${toNepalidate(cYear)} साल ${toNepalidate(cMonth)}  महिना ${toNepalidate(cDay)} गते`;
+  const nepaliToday = `${cYear} साल ${toNepalidate(cMonth)}  महिना ${toNepalidate(cDay)} गते`;
 const adDobDate = new Date(parseInt(yearStr), parseInt(monthStr) - 1, parseInt(dayStr));
   let age = currentDate.getFullYear() - adDobDate.getFullYear();
 const monthDiff = currentDate.getMonth() - adDobDate.getMonth();
